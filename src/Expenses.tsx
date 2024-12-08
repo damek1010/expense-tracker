@@ -1,6 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import { getExpenses } from "./api/expenses";
 import ExpenseForm from "./components/ExpenseForm";
+import ExpensesTable from "./components/ExpensesTable";
+import { Container } from "@mui/material";
 
 function Expenses() {
   const query = useQuery({
@@ -9,15 +11,10 @@ function Expenses() {
   });
 
   return (
-    <div>
+    <Container>
       <ExpenseForm />
-      {query.data?.map(({ title, total }) => (
-        <div>
-          <span>{title}</span>
-          <span>{total}</span>
-        </div>
-      ))}
-    </div>
+      <ExpensesTable expenses={query.data || []} />
+    </Container>
   );
 }
 export default Expenses;

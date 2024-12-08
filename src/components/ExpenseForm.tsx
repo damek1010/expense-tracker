@@ -1,6 +1,8 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { createExpense } from "../api/expenses";
+import TextField from "@mui/material/TextField";
+import { Button, Stack } from "@mui/material";
 
 type ExpenseInputs = {
   title: string;
@@ -22,9 +24,16 @@ const ExpenseForm = () => {
   };
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <input {...register("title")} />
-      <input {...register("total")} />
-      <button>Add</button>
+      <Stack direction="row" spacing={2}>
+        <TextField label="Title" variant="standard" {...register("title")} />
+        <TextField
+          label="Total"
+          variant="standard"
+          type="number"
+          {...register("total")}
+        />
+        <Button variant="contained">Add</Button>
+      </Stack>
     </form>
   );
 };
