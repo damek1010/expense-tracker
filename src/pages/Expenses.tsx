@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
-import { getExpenses } from "./api/expenses";
-import ExpenseForm from "./components/ExpenseForm";
-import ExpensesTable from "./components/ExpensesTable";
+import { getExpenses } from "../api/expenses";
+import ExpenseForm from "../components/ExpenseForm";
+import ExpensesTable from "../components/ExpensesTable";
 import { Container } from "@mui/material";
 
 function Expenses() {

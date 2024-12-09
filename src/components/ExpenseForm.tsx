@@ -24,7 +24,14 @@ const ExpenseForm = () => {
   };
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <Stack direction="row" spacing={2}>
+      <Stack
+        direction="row"
+        spacing={2}
+        sx={{
+          justifyContent: "flex-end",
+          alignItems: "center",
+        }}
+      >
         <TextField label="Title" variant="standard" {...register("title")} />
         <TextField
           label="Total"
